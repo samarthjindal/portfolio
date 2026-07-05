@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Samarth - Portfolio
+        </title>
+        <style>
+            body {
+                background-color: rgb(20, 16, 28);
+            }
+            .static-bar{
+                position: fixed;
+                display: flex;
+                left: 0;
+                right: 0;
+                top: 0;
+                height: 50px;
+                padding: 0 50px;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid rgb(158, 95, 216);
+                background-color: rgb(20, 16, 28);
+                z-index: 100;
+            }
+            .name{
+                color: rgb(158, 95, 216);
+                font-size: 24px;
+                flex: 1fr;
+            }
+            .contents{
+                display: flex;
+                color: rgb(177, 168, 183);
+                width: 300px;
+                justify-content: space-between;
+            }
+            .content{
+                cursor: pointer;
+                transition: text-decoration-color 0.3s color 0.3s;
+            }
+            .content:hover{
+                color: white;
+                text-decoration: underline;
+                text-decoration-color: rgb(158, 95, 216);
+            }
+            .availability{
+                margin-top: 60px;
+                color: rgb(158, 95, 216);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .text-box{
+                padding: 10px;
+                background-color: rgb(32, 26, 44);
+                border-radius: 8px;
+                border: 1px solid rgb(158, 95, 216);
+            }
+            .intro-section{
+                display: flex;
+                justify-content: center;
+                margin: 20px 0 30px 0;
+            }
+            .intro-box{
+                padding: 0 60px;
+                color: white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 1000px;
+                flex: 1;
+            }
+            .text-area{
+                flex: 1;
+                max-width: 600px;
+                font-size: 50px;
+                font-weight: 500;
+                display: flex;
+                flex-direction: column;
+            }
+            .download{
+                padding: 15px;
+                color: white;
+                background-color: rgb(158, 95, 216);
+                border: none;
+                border-radius: 6px;
+                font-weight: 600;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .img{
+                height: 200px;
+                width: 200px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+            .skills{
+                background-color: rgb(21, 21, 30);
+                margin: 0 20px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                padding: 40px;
+                border-radius: 30px;
+                margin-bottom: 40px;
+            }
+            .intro{
+                color: rgb(119, 88, 247);
+                font-weight: 600;
+                margin-bottom: 15px;
+                font-size: 14px;
+            }
+            .lang{
+                color: white;
+                font-weight: bold;
+                font-size: 40px;
+                margin-bottom: 20px;
+            }
+            .boxes{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                row-gap: 15px;
+                column-gap: 15px;
+
+            }
+            @media (min-width: 500px) and (max-width: 680px){
+                .boxes{
+                    grid-template-columns: 1fr 1fr ;
+                }
+            }
+            @media (min-width: 680px) and (max-width: 880px){
+                .boxes{
+                    grid-template-columns: 1fr 1fr 1fr ;
+                }
+            }
+            @media (min-width: 880px) and (max-width: 1100px){
+                .boxes{
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+            }
+            .container{
+                background-color: rgb(28, 28, 40);
+                height: 160px;
+                border: 2px solid rgb(31, 31, 45);
+                border-radius: 8px;
+                color: white;
+                place-items: center;
+                padding-top: 50px;
+                transition: border-color 0.5s, margin-top 0.5s;
+            }
+            .container:hover{
+                border-color: rgb(158, 95, 216);
+                margin-top: -5px;
+            }
+            .logo{
+                height: 40px;
+                width: 40px;
+                object-fit: cover;
+                margin-bottom: 5px;
+                display: block;
+                margin-bottom: 30px;
+            }
+            .lang-expertise{
+                margin-top: 10px;
+                color: grey;
+            }
+            .projects{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                max-width: 1400px;
+                margin: 40px auto;
+                padding: 0 20px;
+            }
+            .project-container{
+                width: 100%;
+                max-width: 600px;
+                height: auto;
+                overflow: hidden;
+                background: rgb(28,28,40);
+                border: 2px solid rgb(31,31,45);
+                border-radius: 8px;
+                color: white;
+                transition: margin-top 0.5s;
+                padding-bottom: 20px;
+            }
+
+            .pro-img{
+                width: 100%;
+                height: auto;
+                display: block;
+                object-fit: cover;
+            }
+            .pros{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                row-gap: 15px;
+                column-gap: 15px;
+                position: relative;
+                place-items: center;
+            }
+            @media (max-width: 990px){
+                .pros{
+                    grid-template-columns: 1fr ;
+                }
+            }
+            .project-container:hover{
+                margin-top: -5px;
+            }
+            .heading{
+                margin: 20px 0 0 18px;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            .proj-desc{
+                margin-top: 10px;
+                color: grey;
+                padding: 0px 10px 0 20px;
+            }
+            .contact{
+                margin:40px 20px;
+                padding:60px 70px;
+                background-color:rgb(21,21,30);
+                border-radius:30px;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .contact-intro{
+                color:rgb(119,88,247);
+                font-size:14px;
+                font-weight:600;
+                margin-bottom:15px;
+            }
+
+            .contact-heading{
+                color:white;
+                font-size:48px;
+                font-weight:bold;
+                margin-bottom:50px;
+            }
+
+            .contact-form{
+                width:100%;
+                max-width:650px;
+                display:flex;
+                flex-direction:column;
+            }
+
+            .contact-form label{
+                color:rgb(155,155,190);
+                font-size:13px;
+                font-weight:600;
+                margin-bottom:10px;
+                margin-top:20px;
+            }
+
+            .contact-form input{
+                background-color:rgb(28,28,40);
+                border:1px solid rgb(55,50,80);
+                border-radius:8px;
+                padding:18px;
+                color:white;
+                font-size:16px;
+                outline:none;
+                transition:border-color .3s;
+            }
+
+
+            .send-btn{
+                margin-top:25px;
+                width:200px;
+                padding:16px;
+                background-color:rgb(158,95,216);
+                color:white;
+                border:none;
+                border-radius:8px;
+                font-size:16px;
+                font-weight:600;
+                cursor:pointer;
+                transition:background-color .3s;
+            }
+
+            .send-btn:hover{
+                background-color:rgb(175,115,235);
+            }
+
+        </style>
+    </head>
+    <body>
+        <header class="static-bar">
+            <div class="name">
+                PortFolio
+            </div>
+            <div class="contents">
+                <div class="content">
+                    Home
+                </div>
+                <div class="content">
+                    Skills
+                </div>
+                <div class="content">
+                    Projects
+                </div>
+                <div class="content">
+                    Contact
+                </div>
+            </div>
+            
+        </header >
+        <div class="availability">
+            <p class="text-box">AVAILABLE FOR INTERNSHIPS</p>
+        </div>
+        <div class="intro-section">
+            <main class="intro-box">
+                <div class="text-area">
+                    <div>
+                        Hi, I am <span style="color: mediumpurple;">Samarth Jindal</span>, a Web Developer.
+                    </div>
+                    <div>
+                        <button class="download">Download Resume</button>
+                    </div>
+                </div>
+                <div>
+                    <img src="profile-picture.jpg" class="img">
+                </div>
+            </main>
+        </div>
+        <div class="skills">
+            <div class="intro">WHAT I WORK WITH</div>
+            <div class="lang">
+                Skills
+            </div>
+            <div class="boxes">
+                <div class="container">
+                    <img src="cpp.webp" class="logo">
+                    <div>C++</div>
+                    <div class="lang-expertise">Intermediate</div>
+                </div>
+                <div class="container">
+                    <img src="python.jpg" class="logo">
+                    <div>Python</div>
+                    <div class="lang-expertise">Beginner</div>
+                </div>
+                <div class="container">
+                    <img src="html.jpg" class="logo">
+                    <div>HTML5</div>
+                    <div class="lang-expertise">Expert</div>
+                </div>
+                <div class="container">
+                    <img src="css.webp" class="logo">
+                    <div>CSS3</div>
+                    <div class="lang-expertise">Expert</div>
+                </div>
+                <div class="container">
+                    <img src="js.png" class="logo">
+                    <div>
+                        JavaScript</div>
+                    <div class="lang-expertise">Beginner</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="projects">
+            <div class="intro">THINGS I'VE BUILT</div>
+            <div class="lang">
+                Projects
+            </div>
+            <div class="pros">
+                <div class="project-container">
+                    <img src="yt.png" class="pro-img">
+                    <div class="heading">Youtube Clone</div>
+                    <div class="proj-desc">While learning html and css I decided to take upon a project to clone youtube.com</div>
+                </div>
+                <div class="project-container">
+                    <img src="error.png" class="pro-img">
+                    <div class="heading">Unknown</div>
+                    <div class="proj-desc">Haven't done much after youtube clone and my portfolio. These two were the only i did till now.</div>
+                </div>
+            </div>
+        </div>
+        <section class="contact">
+            <div class="contact-intro">GET IN TOUCH</div>
+            <div class="contact-heading">Contact Me</div>
+
+            <form class="contact-form">
+                <label>NAME</label>
+                <input type="text" placeholder="Your full name">
+
+                <label>EMAIL</label>
+                <input type="email" placeholder="you@example.com">
+
+                <label>MESSAGE</label>
+                <input placeholder="Tell me about an opportunity, project, or just say hi...">
+
+                <button class="send-btn">
+                    Send Message →
+                </button>
+            </form>
+        </section>
+    </body>
+</html>
